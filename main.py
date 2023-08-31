@@ -4,11 +4,11 @@ from dotenv import load_dotenv
 
 from api.templates import bp as temapltes_bp
 
+
 load_dotenv()
 
 app = Flask(__name__)
 # app.config['DEBUG'] = True
-
 
 @app.errorhandler(Exception)
 def handle_error(e):

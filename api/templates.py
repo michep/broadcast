@@ -7,7 +7,6 @@ bp = Blueprint('templates', __name__, url_prefix='/templates')
 
 TEMPLATESDIR = os.getenv('TEMPLATESDIR')
 
-
 @bp.route('', methods=['GET'])
 def getTemplatesList():
     res = []
