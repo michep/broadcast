@@ -1,0 +1,10 @@
+GET http://localhost:8083/templates
+
+
+POST http://localhost:8083/templates/purple
+Content-Type: application/json
+
+{
+    "title": "this is title тырыпыры",
+    "message": "this is message тырыпыры"
+}
