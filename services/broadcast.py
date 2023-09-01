@@ -38,7 +38,7 @@ def generate(template: str, title: str, message: str):
     # rendererprocess.wait(10)
     
     with sync_playwright() as p:
-        browser = p.chromium.launch(executable_path='C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe')
+        browser = p.chromium.launch(executable_path=os.getenv('CHROMIUM'))
         page = browser.new_page(viewport={'width': 2000, 'height': 5000})
         page.goto(f'file://{htmltempfile}')
         page.screenshot(path=screenshotfile)
