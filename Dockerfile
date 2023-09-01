@@ -16,6 +16,6 @@ COPY api api/
 COPY services services/
 COPY templates templates/
 COPY *.py ./
-COPY ".env" ./
+COPY ".env*" ./
 
 CMD ["python3", "main.py"]
