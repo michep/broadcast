@@ -1,17 +1,25 @@
 import json
+import platform
 from flask import Flask, Response
 from dotenv import load_dotenv
 
 from api.templates import bp as temapltes_bp
 
 
-load_dotenv()
+plat = platform.system()
+
+if plat =='Linux':
+    load_dotenv('.env.linux')
+elif plat == 'Windows':
+    load_dotenv('.env.windows')
+else:
+    load_dotenv()
 
 app = Flask(__name__)
 # app.config['DEBUG'] = True
 
 @app.errorhandler(Exception)
-def handle_error(e):
+def handle_error(e: Exception):
     return Response(response=json.dumps(e.args), status=500, mimetype='application/json')
 
 app.register_blueprint(temapltes_bp)

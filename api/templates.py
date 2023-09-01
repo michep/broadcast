@@ -5,10 +5,10 @@ from services.broadcast import generate
 
 bp = Blueprint('templates', __name__, url_prefix='/templates')
 
-TEMPLATESDIR = os.getenv('TEMPLATESDIR')
 
 @bp.route('', methods=['GET'])
 def getTemplatesList():
+    TEMPLATESDIR = os.getenv('TEMPLATESDIR')
     res = []
     with os.scandir(TEMPLATESDIR) as entries:
         for entry in entries:

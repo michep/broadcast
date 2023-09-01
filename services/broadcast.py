@@ -31,16 +31,16 @@ def generate(template: str, title: str, message: str):
         file.write(html)
 
     screenshotfile = os.path.join(TEMPPATH, os.getenv('SCREENSHOTFILE'))
-    rendererprocess = subprocess.Popen([os.getenv('CHROMIUM'), '--headless', '--no-sandbox', '--window-size=2000,5000', f'--screenshot={screenshotfile}', htmltempfile])
+    rendererprocess = subprocess.Popen([os.getenv('CHROMIUM'), '--headless', '--no-sandbox', '--window-size=2000,20000', f'--screenshot={screenshotfile}', htmltempfile])
     stdout, stderr = rendererprocess.communicate()
     # print(stdout, stderr)
-    rendererprocess.wait()
+    rendererprocess.wait(10)
 
     trimfile = os.path.join(TEMPPATH, os.getenv('TRIMFILE'))
     magickprocess = subprocess.Popen([os.getenv('MAGICK'), screenshotfile, '-trim', trimfile])
     stdout, stderr = magickprocess.communicate()
     # print(stdout, stderr)
-    magickprocess.wait()
+    magickprocess.wait(10)
 
     with open(trimfile, 'rb') as file:
         trim = file.read()

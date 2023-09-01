@@ -1,10 +1,16 @@
 GET http://localhost:8083/templates
 
 
+# GET http://195.123.212.76:8083/templates
+
+
+# POST http://195.123.212.76:8083/templates/purple
+
+
 POST http://localhost:8083/templates/purple
 Content-Type: application/json
 
 {
-    "title": "this is title тырыпыры",
-    "message": "this is message тырыпыры"
+    "title": "this is title",
+    "message": "this is message"
 }
