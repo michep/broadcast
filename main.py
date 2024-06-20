@@ -4,6 +4,7 @@ from flask import Flask, Response
 from dotenv import load_dotenv
 
 from api.templates import bp as temapltes_bp
+from api.hc import bp as hc_bp
 
 
 plat = platform.system()
@@ -23,6 +24,7 @@ def handle_error(e: Exception):
     return Response(response=json.dumps(e.args), status=500, mimetype='application/json')
 
 app.register_blueprint(temapltes_bp)
+app.register_blueprint(hc_bp)
 
 
 if __name__ == '__main__':
